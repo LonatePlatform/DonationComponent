@@ -1,4 +1,4 @@
-pragma solidity ^0.4.4;
+pragma solidity ^0.4.23;
 
 contract LonateProject {
 
@@ -15,7 +15,15 @@ contract LonateProject {
 
     event Lonated(address indexed lonator, uint256 amount);
 
-    function LonateProject(address _project, string _projectName, uint256 _openingTime, uint256 _closingTime, uint256 _softCap, uint256 _hardCap) public {
+    constructor (
+        address _project, 
+        string _projectName, 
+        uint256 _openingTime, 
+        uint256 _closingTime, 
+        uint256 _softCap, 
+        uint256 _hardCap
+
+    ) public {
 
         require(_project != address(0));
         require(_closingTime > _openingTime);
@@ -29,7 +37,6 @@ contract LonateProject {
         softCap = _softCap;
         hardCap = _hardCap;
         balance = 0;
-
     }
 
 
